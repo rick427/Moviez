@@ -8,7 +8,7 @@ import { GET_ALL_MOVIES_REQUEST, GET_ALL_MOVIES_SUCCESS, GET_ALL_MOVIES_FAILED }
 
 const MoviesContextProvider = props => {
   const initialState = {
-    movies: {},
+    movies: null,
     error: '',
     loading: false,
   }
