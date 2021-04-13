@@ -4,6 +4,8 @@ import { ThemeProvider } from 'styled-components';
 
 // pages
 import Home from './pages/home';
+import Movies from './pages/movies';
+import MovieDetails from './pages/movie-details';
 
 // components & utilties
 import { theme } from './theme';
@@ -22,7 +24,9 @@ function App() {
       <MoviesProvider>
         <ShowsProvider>
           <Switch>
-            <Route path="/" component={Home}/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/movies" component={Movies}/>
+            <Route path="/movie/:name/:id" component={MovieDetails}/>
           </Switch>
         </ShowsProvider>
       </MoviesProvider>

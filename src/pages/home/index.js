@@ -44,8 +44,6 @@ const Home = () => {
         return posterUrl;
     }
 
-    console.log(config);
-
     return (
         <StyledWrapper url={url}>
             <article className="banner">
