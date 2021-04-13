@@ -11,7 +11,7 @@ const ShowsCard = ({item, getImageUrl}) => {
 
     const handleClick = (item) => {
         const formattedName = item.name.replace(/\s/g, "_");
-        history.push(`/movie/${formattedName}/${item.id}`);
+        history.push(`/show/${formattedName}/${item.id}`);
     }
 
     return (

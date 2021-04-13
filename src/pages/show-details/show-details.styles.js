@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMovieDetails = styled.section`
+export const StyledShowDetails = styled.section`
   min-height: 100vh;
 
     .jumbotron{
