@@ -8,7 +8,7 @@ const MoviesReducer = (state, action) => {
                 loading: true
             }
         case GET_ALL_MOVIES_SUCCESS:
-            localStorage.setItem('index-movie', JSON.stringify(action.payload[0].backdrop_path))
+            localStorage.setItem('index-movie', JSON.stringify(action.payload[state.movieIndex].backdrop_path))
             return {
                 ...state,
                 loading: false,

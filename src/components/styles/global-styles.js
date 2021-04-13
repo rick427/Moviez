@@ -24,19 +24,6 @@ export const GlobalStyles = createGlobalStyle`
         color: #444;
     }
 
-    body::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-
-    body::-webkit-scrollbar-track {
-        background: ${({theme}) => theme.colors.bg.light};
-    }
-
-    body::-webkit-scrollbar-thumb {
-        background: ${({theme}) => theme.colors.bg.grey};
-        border-radius: 25px;
-    }
-
     a {
         text-decoration: none;
     }

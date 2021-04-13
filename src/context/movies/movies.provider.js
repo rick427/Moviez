@@ -11,6 +11,7 @@ const MoviesContextProvider = props => {
     movies: null,
     error: '',
     loading: false,
+    movieIndex: Math.floor(Math.random() * 20)
   }
 
   const [state, dispatch] = useReducer(MoviesReducer, initialState);
@@ -35,6 +36,7 @@ const MoviesContextProvider = props => {
         movies: state.movies,
         loading: state.loading,
         error: state.error,
+        movieIndex: state.movieIndex,
         getMovies
       }}
     >
