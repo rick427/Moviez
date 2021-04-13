@@ -1,19 +1,19 @@
-import { GET_ALL_MOVIES_REQUEST, GET_ALL_MOVIES_SUCCESS, GET_ALL_MOVIES_FAILED } from '../types';
+import { GET_MOVIE_CONFIG_REQUEST, GET_MOVIE_CONFIG_SUCCESS, GET_MOVIE_CONFIG_FAILED } from '../types';
 
-const MoviesReducer = (state, action) => {
+const ConfigReducer = (state, action) => {
     switch (action.type) {
-        case GET_ALL_MOVIES_REQUEST:
+        case GET_MOVIE_CONFIG_REQUEST:
             return {
                 ...state,
                 loading: true
             }
-        case GET_ALL_MOVIES_SUCCESS:
+        case GET_MOVIE_CONFIG_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                movies: action.payload
+                config: action.payload
             }
-        case GET_ALL_MOVIES_FAILED:
+        case GET_MOVIE_CONFIG_FAILED:
             return {
                 ...state,
                 loading: false,
@@ -24,4 +24,4 @@ const MoviesReducer = (state, action) => {
     }
 }
 
-export default MoviesReducer;
+export default ConfigReducer;

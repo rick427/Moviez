@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -6,22 +6,23 @@ import { ThemeProvider } from 'styled-components';
 import Home from './pages/home';
 
 // components & utilties
-import { theme } from './config';
+import { theme } from './theme';
 import { GlobalStyles } from './components/styles/global-styles';
 
 // context
-import MoviesStateProvider from "./context/movies/movies.state";
+import MoviesProvider from "./context/movies/movies.provider";
 
 function App() {
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
 
-      <MoviesStateProvider>
+      <MoviesProvider>
         <Switch>
           <Route path="/" component={Home}/>
         </Switch>
-      </MoviesStateProvider>
+      </MoviesProvider>
     </ThemeProvider>
   );
 }
