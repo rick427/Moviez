@@ -7,10 +7,12 @@ import Home from './pages/home';
 
 // components & utilties
 import { theme } from './theme';
+import Footer from './components/ui/Footer';
 import { GlobalStyles } from './components/styles/global-styles';
 
 // context
 import MoviesProvider from "./context/movies/movies.provider";
+import ShowsProvider from './context/shows/shows.provider';
 
 function App() {
   return (
@@ -18,10 +20,14 @@ function App() {
       <GlobalStyles/>
 
       <MoviesProvider>
-        <Switch>
-          <Route path="/" component={Home}/>
-        </Switch>
+        <ShowsProvider>
+          <Switch>
+            <Route path="/" component={Home}/>
+          </Switch>
+        </ShowsProvider>
       </MoviesProvider>
+
+      <Footer/>
     </ThemeProvider>
   );
 }

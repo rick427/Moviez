@@ -33,7 +33,7 @@ const ShowsContextProvider = props => {
     <ShowsContext.Provider
       value={{
         shows: state.shows,
-        loading: state.loading,
+        showsLoading: state.loading,
         error: state.error,
         getShows
       }}

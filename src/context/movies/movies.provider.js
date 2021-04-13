@@ -34,7 +34,7 @@ const MoviesContextProvider = props => {
     <MoviesContext.Provider
       value={{
         movies: state.movies,
-        loading: state.loading,
+        moviesLoading: state.loading,
         error: state.error,
         movieIndex: state.movieIndex,
         getMovies
