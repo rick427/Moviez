@@ -13,7 +13,6 @@ import { GlobalStyles } from './components/styles/global-styles';
 import MoviesProvider from "./context/movies/movies.provider";
 
 function App() {
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
