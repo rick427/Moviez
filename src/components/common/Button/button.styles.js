@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-    padding: 2rem;
+    padding: 2rem 4rem;
     border: none;
-    width: 16rem;
     background: ${({theme}) => theme.colors.brand.primary};
     color: ${({theme}) => theme.colors.text.white};
     font-family: ${({theme}) => theme.fonts.body};

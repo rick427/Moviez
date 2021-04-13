@@ -24,6 +24,7 @@ export const fontSizes = {
   rlarge: '2rem',
   xlarge: '2.5rem',
   xxlarge: '3rem',
+  xxslarge: '3.5rem',
   xxxlarge: '4rem',
   xxxxlarge: '5rem'
 };

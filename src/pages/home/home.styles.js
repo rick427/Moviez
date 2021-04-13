@@ -55,7 +55,6 @@ export const StyledWrapper = styled.section`
       .banner-info-text{
         font-size: ${({theme}) => theme.fontSizes.regular};
         color: ${({theme}) => theme.colors.text.white};
-        //white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -64,7 +63,6 @@ export const StyledWrapper = styled.section`
       }
     }
   }
-
 
   .shows{
     position: relative;
@@ -95,6 +93,69 @@ export const StyledWrapper = styled.section`
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2em;
       grid-auto-rows: 400px;
+    }
+  }
+
+  .advert{
+    position: relative;
+    z-index: 10;
+    background-color: ${({theme}) => theme.colors.bg.white};
+    padding: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .advert-image{
+      width: 50rem;
+      height: 60rem;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .advert-info{
+      .advert-info-heading{
+        width: 45rem;
+        margin-bottom: 2rem;
+        color: ${({theme}) => theme.colors.text.dark};
+        font-size: ${({theme}) => theme.fontSizes.xxslarge};
+        font-weight: ${({theme}) => theme.fontWeights.xxbold};
+
+        span{
+          text-decoration: underline;
+        }
+      }
+
+      .advert-info-tile{
+        display: flex;
+        align-items: center;
+
+        .advert-info-icon{
+          width: 5rem;
+          height: 5rem;
+          margin: 2rem 2rem 4rem 0;
+
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .advert-info-tile-heading{
+          color: ${({theme}) => theme.colors.text.dark};
+          font-size: ${({theme}) => theme.fontSizes.body};
+          font-weight: ${({theme}) => theme.fontWeights.xbold}; 
+        }
+
+        .advert-info-tile-text{
+          width: 55rem;
+          color: ${({theme}) => theme.colors.text.dark};
+          font-size: ${({theme}) => theme.fontSizes.small};
+        }
+      }
     }
   }
 `;

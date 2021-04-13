@@ -1,19 +1,21 @@
 import React, {useEffect, useContext} from 'react';
 
+import advertImage from '../../assets/advert.png';
 import { parseImageUrl } from '../../utils/helpers';
 import useMovieConfig from '../../hooks/useMovieConfig';
+import { adverts } from '../../constants/adverts.constants';
 
 import { StyledWrapper } from './home.styles';
 import Rating from '../../components/common/Rating';
 import Button from '../../components/common/Button';
 import Spinner from '../../components/common/Spinner';
+import ShowsCard from '../../components/common/ShowsCard';
 
 import ShowsContext from '../../context/shows/shows.context';
 import MoviesContext from '../../context/movies/movies.context';
-import ShowsCard from '../../components/common/ShowsCard';
 
 const Home = () => {
-    const {shows, getShows, showsLoading} = useContext(ShowsContext);
+    const {shows, getShows} = useContext(ShowsContext);
     const {movies, movieIndex, moviesLoading, getMovies} = useContext(MoviesContext);
     const {config, configLoading} = useMovieConfig();
 
@@ -60,7 +62,7 @@ const Home = () => {
                     <p className="banner-info-text">{movies?.[movieIndex]?.overview}</p>
 
                     <Button>
-                        Rent Now
+                        Browse all movies
                     </Button>
                 </div>
             </article>
@@ -72,7 +74,7 @@ const Home = () => {
                 </div>
 
                 <div className="shows-row">
-                    {shows && shows.slice(1, 16).map(item => (
+                    {shows && shows.map(item => (
                         <ShowsCard 
                             key={item.id} 
                             item={item}
@@ -82,8 +84,29 @@ const Home = () => {
                 </div>
             </article>
 
-            <article>
+            <article className="advert">
+                <figure className="advert-image">
+                    <img src={advertImage} alt="advert"/>
+                </figure>
 
+                <div className="advert-info">
+                    <h2 className="advert-info-heading">
+                        Best pick for hassle-free <span>renting</span> experience.
+                    </h2>
+
+                    {adverts.map(item => (
+                        <div key={item.id} className="advert-info-tile">
+                            <figure className="advert-info-icon">
+                                <img src={item.icon} alt={item.name}/>
+                            </figure>
+
+                            <div>
+                                <h4 className="advert-info-tile-heading">{item.name}</h4>
+                                <p className="advert-info-tile-text">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </article>
         </StyledWrapper>
     )

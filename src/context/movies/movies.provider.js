@@ -4,10 +4,18 @@ import axios from 'axios';
 import MoviesContext from './movies.context';
 import MoviesReducer from './movies.reducer';
 import { ACCESS_KEY } from "../../utils/helpers";
-import { GET_ALL_MOVIES_REQUEST, GET_ALL_MOVIES_SUCCESS, GET_ALL_MOVIES_FAILED } from '../types';
+import { 
+  GET_ALL_MOVIES_REQUEST, 
+  GET_ALL_MOVIES_SUCCESS, 
+  GET_ALL_MOVIES_FAILED,
+  GET_MOVIE_REQUEST,
+  GET_MOVIE_SUCCESS,
+  GET_MOVIE_FAILED,
+} from '../types';
 
 const MoviesContextProvider = props => {
   const initialState = {
+    movie: {},
     movies: null,
     error: '',
     loading: false,
@@ -30,14 +38,30 @@ const MoviesContextProvider = props => {
     }
   } 
 
+  const getMovie = async (movieId) => {
+    try {
+      dispatch({ type: GET_MOVIE_REQUEST });
+      const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${ACCESS_KEY}&language=en-US`);
+      dispatch({ type: GET_MOVIE_SUCCESS, payload: res.data.results});
+    } 
+    catch (err) {
+      dispatch({
+        type: GET_MOVIE_FAILED, 
+        payload: err.response && err.response.data.message?.err.message
+      })
+    }
+  } 
+
   return (
     <MoviesContext.Provider
       value={{
+        movie: state.movie,
         movies: state.movies,
         moviesLoading: state.loading,
         error: state.error,
         movieIndex: state.movieIndex,
-        getMovies
+        getMovies,
+        getMovie,
       }}
     >
       {props.children}
