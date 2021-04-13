@@ -1,6 +1,6 @@
 export const colors = {
     brand: {
-        primary: '#34bd7c',
+        primary: '#E90101',
     },
     ui: {
         light: '#f7f7f7',
@@ -10,6 +10,8 @@ export const colors = {
     bg: {
         white: '#fff',
         dark: '#000',
+        light: '#f1f1f1',
+        grey: 'c1c1c1'
     },
     text: {
         white: '#fff',

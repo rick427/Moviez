@@ -22,12 +22,25 @@ const Home = () => {
     const url = parseImageUrl(
         config?.images?.secure_base_url, 
         config?.images?.backdrop_sizes[3], 
-        movies?.results[0]?.backdrop_path
+        JSON.parse(localStorage.getItem('index-movie'))
     );
+
+    console.log(movies);
 
     return (
         <StyledWrapper url={url}>
-            HOME PAGE
+            <article className="banner">
+                <div className="banner-info">
+                    <p className="banner-info-subheading">New releases</p>
+                    <h1 className="banner-info-heading">{movies?.[0]?.title}</h1>
+
+                    <p className="banner-info-text">
+                        {movies?.[0]?.overview}
+                    </p>
+                </div>
+            </article>
+
+            <div style={{height: '150vh',}}></div>
         </StyledWrapper>
     )
 }

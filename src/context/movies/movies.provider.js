@@ -19,11 +19,12 @@ const MoviesContextProvider = props => {
     try {
       dispatch({ type: GET_ALL_MOVIES_REQUEST });
       const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${ACCESS_KEY}&language=en-US&page=${page}`);
-      dispatch({ type: GET_ALL_MOVIES_SUCCESS, payload: res.data });
-    } catch (err) {
+      dispatch({ type: GET_ALL_MOVIES_SUCCESS, payload: res.data.results});
+    } 
+    catch (err) {
       dispatch({
         type: GET_ALL_MOVIES_FAILED, 
-        payload: err.response ?? err.response.data.message?.err.message
+        payload: err.response && err.response.data.message?.err.message
       })
     }
   } 

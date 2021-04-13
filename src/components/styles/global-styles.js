@@ -29,11 +29,11 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body::-webkit-scrollbar-track {
-        background: ${({theme}) => theme.colors.brand.tertiary};
+        background: ${({theme}) => theme.colors.bg.light};
     }
 
     body::-webkit-scrollbar-thumb {
-        background: ${({theme}) => theme.colors.bg.scrollThumb};
+        background: ${({theme}) => theme.colors.bg.grey};
         border-radius: 25px;
     }
 
