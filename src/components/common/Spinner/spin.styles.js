@@ -6,6 +6,7 @@ export const StyledContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #333;
 
     .spinner {
         width: 40px;
@@ -19,7 +20,7 @@ export const StyledContainer = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        background-color: #333;
+        background-color: white;
         opacity: 0.6;
         position: absolute;
         top: 0;
