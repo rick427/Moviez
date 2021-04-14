@@ -3,10 +3,10 @@ import React, {useContext} from 'react';
 import bannerImage from '../../assets/movie-banner.jpg';
 
 import Header from '../../components/ui/Header';
+import { StyledRentals } from './rentals-styles';
 import Button from '../../components/common/Button';
 import MovieItem from '../../components/common/MovieItem';
 import RentalContext from '../../context/rentals/rental.context';
-import { StyledRentals } from './rentals-styles';
 
 const Rentals = ({history}) => {
     const {rentals} = useContext(RentalContext);
@@ -16,7 +16,9 @@ const Rentals = ({history}) => {
             <Header/>
 
             <div className="movies-banner">
-                <h2 className="movies-banner-heading">Rentals<span>.</span></h2>
+                <h2 className="movies-banner-heading">
+                    My Rentals<span>.</span>
+                </h2>
                 <p className="movies-banner-text">
                     Finished watching a movie ? Please return them to rent more movies
                     as your account is capped on 3 movies per rent.
