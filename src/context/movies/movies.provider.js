@@ -11,14 +11,19 @@ import {
   GET_MOVIE_REQUEST,
   GET_MOVIE_SUCCESS,
   GET_MOVIE_FAILED,
+  GET_MOVIE_ACTORS_REQUEST,
+  GET_MOVIE_ACTORS_SUCCESS,
+  GET_MOVIE_ACTORS_FAILED
 } from '../types';
 
 const MoviesContextProvider = props => {
   const initialState = {
+    casts: null,
     movie: {},
     movies: null,
     error: '',
     loading: false,
+    castsLoading: false,
     movieIndex: Math.floor(Math.random() * 20)
   }
 
@@ -52,16 +57,33 @@ const MoviesContextProvider = props => {
     }
   } 
 
+  const getCasts = async (movieId) => {
+    try {
+      dispatch({ type: GET_MOVIE_ACTORS_REQUEST });
+      const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${ACCESS_KEY}&language=en-US`);
+      dispatch({ type: GET_MOVIE_ACTORS_SUCCESS, payload: res.data.cast});
+    } 
+    catch (err) {
+      dispatch({
+        type: GET_MOVIE_ACTORS_FAILED, 
+        payload: err.response && err.response.data.message?.err.message
+      })
+    }
+  } 
+
   return (
     <MoviesContext.Provider
       value={{
+        casts: state.casts,
         movie: state.movie,
         movies: state.movies,
+        castsLoading: state.castsLoading,
         moviesLoading: state.loading,
         error: state.error,
         movieIndex: state.movieIndex,
         getMovies,
         getMovie,
+        getCasts,
       }}
     >
       {props.children}

@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 import { StyledButton } from './button.styles';
 
-const Button = ({children}) => {
+const Button = ({children, ...otherProps}) => {
     return (
-        <StyledButton>{children}</StyledButton>
+        <StyledButton {...otherProps}>
+            {children}
+        </StyledButton>
     );
 }
 

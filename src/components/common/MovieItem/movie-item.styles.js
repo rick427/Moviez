@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 
-export const StyledShowsCard = styled.div`
-    overflow: hidden;
-    border-radius: 5px;
+export const StyledMovieItem = styled.div`
     box-shadow: 0 0 10px rgba(0,0,0,.15);
+    border-radius: 5px;
+    overflow: hidden;
 
-    .card-image{
+    .movie-image{
         width: 100%;
-        height: 38rem;
-        background: ${({url}) => `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url(${url}) center center no-repeat`};
-        background-size: cover;
-        transition: all .3s;
+        height: 35rem;
+        overflow: hidden;
         cursor: pointer;
-        backface-visibility: hidden;
 
         :hover{
             opacity: .9;
@@ -25,7 +22,7 @@ export const StyledShowsCard = styled.div`
         }
     }
 
-    .card-title{
+    .movie-heading{
         color: ${({theme}) => theme.colors.text.dark};
         font-size: ${({theme}) => theme.fontSizes.small};
         font-weight: ${({theme}) => theme.fontWeights.bold};
@@ -36,19 +33,19 @@ export const StyledShowsCard = styled.div`
         white-space: nowrap;
     }
 
-    .card-row{
+    .movie-row{
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 2rem;
 
-        .card-text{
+        .movie-text{
             color: ${({theme}) => theme.colors.text.grey};
             font-size: ${({theme}) => theme.fontSizes.xsmall};
         }
     }
 
-    .card-btn{
+    .movie-btn{
         padding: .8rem 3rem;
         border: 1.5px solid ${({theme}) => theme.colors.brand.primary};
         margin: 1.5rem 0 2rem 2rem;

@@ -14,7 +14,7 @@ import ShowsCard from '../../components/common/ShowsCard';
 import ShowsContext from '../../context/shows/shows.context';
 import MoviesContext from '../../context/movies/movies.context';
 
-const Home = () => {
+const Home = ({history}) => {
     const {shows, getShows} = useContext(ShowsContext);
     const {movies, movieIndex, moviesLoading, getMovies} = useContext(MoviesContext);
     const {config, configLoading} = useMovieConfig();
@@ -44,6 +44,10 @@ const Home = () => {
         return posterUrl;
     }
 
+    const handleClick = () => {
+        history.push('/movies');
+    }
+
     return (
         <StyledWrapper url={url}>
             <article className="banner">
@@ -59,7 +63,7 @@ const Home = () => {
                     </div>
                     <p className="banner-info-text">{movies?.[movieIndex]?.overview}</p>
 
-                    <Button>
+                    <Button onClick={handleClick}>
                         Browse all movies
                     </Button>
                 </div>

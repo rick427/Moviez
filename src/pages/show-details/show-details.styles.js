@@ -113,7 +113,7 @@ export const StyledShowDetails = styled.section`
 
     .cast-info-grid{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 2em;
       margin: 4rem 0;
     }

@@ -1,12 +1,11 @@
 import React, {useEffect, useContext} from 'react'
 
-import Button from '../../components/common/Button';
 import Rating from '../../components/common/Rating';
 import Spinner from '../../components/common/Spinner';
 import ShowsContext from '../../context/shows/shows.context';
-import { StyledShowDetails } from './show-details.styles';
 import {CONFIG, parseImageUrl} from '../../utils/helpers';
 import CastItem from '../../components/common/CastItem';
+import { StyledShowDetails } from './show-details.styles';
 
 const ShowDetails = ({match}) => {
     const {getShow, getCasts, casts, show, showsLoading} = useContext(ShowsContext);
@@ -45,7 +44,7 @@ const ShowDetails = ({match}) => {
                     </figure>
 
                     <div className="jumbotron-card-info">
-                        <h2 className="jumbotron-card-info-heading">{show?.name}</h2>
+                        <h2 className="jumbotron-card-info-heading">{show?.title}</h2>
                         <h5 className="jumbotron-card-info-subheading">plot</h5>
                         <p className="jumbotron-card-info-text">{show?.overview}</p>
 

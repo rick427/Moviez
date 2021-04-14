@@ -1,7 +1,8 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import icon from '../../../assets/real-sign.svg';
+// import icon from '../../../assets/shopping-cart.svg';
+// import expandIcon from '../../../assets/expand.svg';
 import { StyledShowsCard } from './shows-card.styles'
 
 const ShowsCard = ({item, getImageUrl}) => {
@@ -9,19 +10,26 @@ const ShowsCard = ({item, getImageUrl}) => {
 
     const url = getImageUrl(item.poster_path);
 
-    const handleClick = (item) => {
-        const formattedName = item.name.replace(/\s{?}/g, "_");
+    const handleClick = () => {
+        const formattedName = item.name.replace(/\s/g, "_");
         history.push(`/show/${formattedName}/${item.id}`);
     }
 
     return (
-        <StyledShowsCard url={url} onClick={handleClick.bind(this, item)}>
-            <div className="card-content">
-                <h2 className="card-title">{item.name}</h2>
-                <button className="card-btn">
-                    <img src={icon} alt="rent"/>
-                </button>
+        <StyledShowsCard>
+            <figure className="card-image" onClick={handleClick}>
+                <img src={url} alt={item.name}/>
+            </figure>
+            <h2 className="card-title">{item.name}</h2>
+
+            <div className="card-row">
+                <p className="card-text">{item.first_air_date}</p>
+                <p className="card-text">Stock: x5</p>
             </div>
+
+            <button className="card-btn">
+                + Add to list
+            </button>
         </StyledShowsCard>
     )
 }
