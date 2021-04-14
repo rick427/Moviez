@@ -1,7 +1,8 @@
 # Moviez
 
 A movies web application that lets users rent and get the latest information about
-the movie industry. Moviez was built with React.js.
+the movie industry. Moviez was built with React.js. **Please note**: Due to time limitations
+this app was built with a desktop first approach and as such may break if ran on a mobile device.
 
 ## How to run
 
@@ -14,13 +15,16 @@ the movie industry. Moviez was built with React.js.
 
 To have a quick demo of the Moviez app, please use the link: https://moviez-rental.netlify.app
 
-## Snapshots of the app
+## Snapshots
 
-Landing page
+#### Landing page
+
 <img src="/snapshots/1.PNG" alt="landing Page"/>
 
-Movies library
+#### Movies library
+
 <img src="/snapshots/2.PNG" alt="movies Page"/>
 
-Movie details page
+#### Movie details page
+
 <img src="/snapshots/3.PNG" alt="details Page"/>
