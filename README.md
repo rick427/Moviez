@@ -24,7 +24,7 @@ This is made possible with TMDB's REST API's. Making requests to TMDB's endpoint
 1. Clone or download the repo above
 2. In the project root directory, run _npm install_ to get all the necessary dependencies
 3. Create a .env file in the project root directory and paste your access key from TMDB like so;
-   REACT_APP_MOVIE_ACCESS_KEY=_your key here_
+   REACT*APP_MOVIE_ACCESS_KEY=\_your key here*
 4. Run _npm start_
 5. Enjoy 😊
 
@@ -34,14 +34,14 @@ To have a quick demo of the Moviez app, please use the link: https://moviez-rent
 
 ## Snapshots
 
-#### Landing page
+### Landing page
 
 <img src="/snapshots/1.PNG" alt="landing Page"/>
 
-#### Movies library
+### Movies library
 
 <img src="/snapshots/2.PNG" alt="movies Page"/>
 
-#### Movie details page
+### Movie details page
 
 <img src="/snapshots/3.PNG" alt="details Page"/>
