@@ -22,10 +22,10 @@ This is made possible with TMDB's REST API's. Making requests to TMDB's endpoint
 ## How to run
 
 1. Clone or download the repo above
-2. In the project root directory, run _npm install_ to get all the necessary dependencies
+2. In the project root directory, run **npm install** to get all the necessary dependencies
 3. Create a .env file in the project root directory and paste your access key from TMDB like so;
-   REACT*APP_MOVIE_ACCESS_KEY=\_your key here*
-4. Run _npm start_
+   REACT_APP_MOVIE_ACCESS_KEY=**your key here**
+4. Run **npm start**
 5. Enjoy 😊
 
 ## Live URL
