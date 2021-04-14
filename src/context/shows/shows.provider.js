@@ -13,7 +13,7 @@ import {
   GET_SHOW_FAILED,
   GET_SHOW_ACTORS_REQUEST,
   GET_SHOW_ACTORS_SUCCESS,
-  GET_SHOW_ACTORS_FAILED
+  GET_SHOW_ACTORS_FAILED,
 } from '../types';
 
 const ShowsContextProvider = props => {
@@ -82,7 +82,7 @@ const ShowsContextProvider = props => {
         error: state.error,
         getShows,
         getShow,
-        getCasts
+        getCasts,
       }}
     >
       {props.children}

@@ -7,7 +7,7 @@ import {
   GET_SHOW_FAILED,
   GET_SHOW_ACTORS_REQUEST,
   GET_SHOW_ACTORS_SUCCESS,
-  GET_SHOW_ACTORS_FAILED
+  GET_SHOW_ACTORS_FAILED,
 } from '../types';
 
 const ShowsReducer = (state, action) => {
@@ -25,7 +25,7 @@ const ShowsReducer = (state, action) => {
             }
         case GET_SHOWS_SUCCESS:
             const newShows = action.payload.map(item => {
-                item.stock = 5;
+                item.stock = 2;
                 return item;
             });
             return {

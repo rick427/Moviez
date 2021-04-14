@@ -7,7 +7,9 @@ import {
     GET_MOVIE_FAILED,
     GET_MOVIE_ACTORS_REQUEST,
     GET_MOVIE_ACTORS_SUCCESS,
-    GET_MOVIE_ACTORS_FAILED
+    GET_MOVIE_ACTORS_FAILED,
+    DECREASE_STOCK,
+    INCREASE_STOCK
 } from '../types';
 
 const MoviesReducer = (state, action) => {
@@ -25,14 +27,23 @@ const MoviesReducer = (state, action) => {
             }
         case GET_ALL_MOVIES_SUCCESS:
             const movies = action.payload.map(item => {
-                item.stock = 5;
+                item.stock = 2;
                 return item;
             });
             localStorage.setItem('index-movie', JSON.stringify(action.payload[state.movieIndex].backdrop_path));
-            return {
-                ...state,
-                loading: false,
-                movies
+            if(localStorage.getItem('new-movies')){
+                return {
+                    ...state,
+                    loading: false,
+                    movies: JSON.parse(localStorage.getItem('new-movies'))
+                }
+            }
+            else{
+                return {
+                    ...state,
+                    loading: false,
+                    movies
+                }
             }
         case GET_MOVIE_ACTORS_SUCCESS:
             return {
@@ -45,6 +56,24 @@ const MoviesReducer = (state, action) => {
                 ...state,
                 loading: false,
                 movie: action.payload
+            }
+        case DECREASE_STOCK:
+            const movieIndex = state.movies.findIndex(item => item.id === action.payload.id);
+            let updatedMovies = [...state.movies];
+            updatedMovies[movieIndex].stock -=1;
+            localStorage.setItem('new-movies', JSON.stringify(updatedMovies));
+            return {
+                ...state,
+                movies: updatedMovies
+            }
+        case INCREASE_STOCK:
+            const newIndex = state.movies.findIndex(item => item.id === action.payload.id);
+            let newMovies = [...state.movies];
+            newMovies[newIndex].stock +=1;
+            localStorage.setItem('new-movies', JSON.stringify(newMovies));
+            return {
+                ...state,
+                movies: newMovies
             }
         case GET_MOVIE_FAILED:
         case GET_ALL_MOVIES_FAILED:

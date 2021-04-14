@@ -6,6 +6,13 @@ import {
 const RentalReducer = (state, action) => {
     switch (action.type) {
         case USER_RENTS_MOVIE:
+            const isRented = state.rentals.find(item => item.id === action.payload.id);
+            if(isRented){
+                return {
+                    ...state,
+                    rentals: [...state.rentals].map(item => item.id === isRented.id ? action.payload : item)
+                }
+            }
             return {
                 ...state,
                 rentals: [...state.rentals, action.payload]

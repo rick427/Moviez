@@ -13,7 +13,9 @@ import {
   GET_MOVIE_FAILED,
   GET_MOVIE_ACTORS_REQUEST,
   GET_MOVIE_ACTORS_SUCCESS,
-  GET_MOVIE_ACTORS_FAILED
+  GET_MOVIE_ACTORS_FAILED,
+  DECREASE_STOCK,
+  INCREASE_STOCK
 } from '../types';
 
 const MoviesContextProvider = props => {
@@ -71,6 +73,14 @@ const MoviesContextProvider = props => {
     }
   } 
 
+  const decreaseStock = (movie) => {
+    dispatch({ type: DECREASE_STOCK, payload: movie});
+  }
+
+  const increaseStock = (movie) => {
+    dispatch({ type: INCREASE_STOCK, payload: movie});
+  }
+
   return (
     <MoviesContext.Provider
       value={{
@@ -84,6 +94,8 @@ const MoviesContextProvider = props => {
         getMovies,
         getMovie,
         getCasts,
+        decreaseStock,
+        increaseStock,
       }}
     >
       {props.children}

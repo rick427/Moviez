@@ -5,8 +5,10 @@ import {useHistory} from 'react-router-dom';
 import { StyledMovieItem } from './movie-item.styles';
 import {CONFIG, parseImageUrl} from '../../../utils/helpers';
 import RentalContext from '../../../context/rentals/rental.context';
+import MoviesContext from '../../../context/movies/movies.context';
 
 const MovieItem = ({item, isRented}) => {
+    const {decreaseStock, increaseStock} = useContext(MoviesContext);
     const {returnMovie, rentMovie, rentals} = useContext(RentalContext);
     const history = useHistory();
 
@@ -26,12 +28,18 @@ const MovieItem = ({item, isRented}) => {
             return toast.error('Sorry, you cannot rent more than 3 movies.')
         }
         rentMovie(item);
+        decreaseStock(item);
         toast.success(`${item.title} rented successfully`)
+    }
+
+    const handleReturn = () => {
+        increaseStock(item);
+        returnMovie(item);
     }
 
     return (
         <StyledMovieItem>
-            <figure className="movie-image" onClick={isRented ? null : handleClick}>
+            <figure className="movie-image" onClick={isRented ? null : item.stock === 0 ? null : handleClick}>
                 <img src={posterImageUrl} alt={item.title}/>
             </figure>
 
@@ -44,17 +52,19 @@ const MovieItem = ({item, isRented}) => {
                 {isRented ? (
                     <p className="movie-badge">watching</p>
                 ) : (
-                    <p className="movie-text">Stock: x{item.stock}</p>
+                    <p className={`movie-text ${item.stock === 0 && 'danger'}`}>
+                        {item.stock === 0 ? `finished` : `Stock: x${item.stock}`}
+                    </p>
                 )}
             </div>
 
             {isRented ? (
-                <button className="movie-btn" onClick={() => returnMovie(item)}>
+                <button className="movie-btn" onClick={handleReturn}>
                     + Return Movie
                 </button>
             ) : (
-                <button className="movie-btn" onClick={handleRent}>
-                    + Rent Movie
+                <button className={`movie-btn ${item.stock === 0 && 'disable'}`} onClick={item.stock === 0 ? null : handleRent}>
+                    {item.stock === 0 ? 'OUT OF STOCK' : '+ Rent Movie'}
                 </button>
             )}
         </StyledMovieItem>

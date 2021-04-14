@@ -42,6 +42,12 @@ export const StyledMovieItem = styled.div`
         .movie-text{
             color: ${({theme}) => theme.colors.text.grey};
             font-size: ${({theme}) => theme.fontSizes.xsmall};
+
+            &.danger{
+              color: ${({theme}) => theme.colors.brand.primary};  
+              text-transform: capitalize;
+              font-weight: ${({theme}) => theme.fontWeights.medium};
+            }
         }
 
         .movie-badge{
@@ -62,6 +68,14 @@ export const StyledMovieItem = styled.div`
         font-family: ${({theme}) => theme.fonts.body};
         outline: none;
         transition: all .3s;
+
+        &.disable{
+            pointer-events: none;
+            :hover{
+                background-color: ${({theme}) => theme.colors.bg.white};
+                color: ${({theme}) => theme.colors.brand.primary};
+            }
+        }
 
         :hover{
             background-color: ${({theme}) => theme.colors.brand.primary};

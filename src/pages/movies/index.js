@@ -26,7 +26,9 @@ const Movies = () => {
             <Header/>
 
            <div className="movies-banner">
-                <h2 className="movies-banner-heading">Movies<span>.</span></h2>
+                <h2 className="movies-banner-heading">
+                   All Movies<span>.</span>
+                </h2>
                 <p className="movies-banner-text">
                     All new released Hollywood can be rented from our amesome and 
                     robust catalog. Check it out.
