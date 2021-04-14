@@ -31,7 +31,7 @@ const MovieItem = ({item, isRented}) => {
 
     return (
         <StyledMovieItem>
-            <figure className="movie-image" onClick={handleClick}>
+            <figure className="movie-image" onClick={isRented ? null : handleClick}>
                 <img src={posterImageUrl} alt={item.title}/>
             </figure>
 
@@ -41,7 +41,7 @@ const MovieItem = ({item, isRented}) => {
 
             <div className="movie-row">
                 <p className="movie-text">{item.release_date || item.first_air_date}</p>
-                <p className="movie-text">Stock: x5</p>
+                {!isRented && (<p className="movie-text">Stock: x{item.stock}</p>)}
             </div>
 
             {isRented ? (

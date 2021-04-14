@@ -2,10 +2,11 @@ import React, {useEffect, useContext} from 'react';
 
 import Rating from '../../components/common/Rating';
 import Spinner from '../../components/common/Spinner';
-import {CONFIG, parseImageUrl} from '../../utils/helpers';
 import CastItem from '../../components/common/CastItem';
+
+import { CONFIG, parseImageUrl } from '../../utils/helpers';
+import { StyledMovieDetails } from './movie-details.styles';
 import MoviesContext from '../../context/movies/movies.context';
-import { StyledMovieDetails } from './movie-details.styles'
 
 const MovieDetails = ({match}) => {
     const {getMovie, getCasts, movie, casts, castsLoading,} = useContext(MoviesContext);
@@ -58,7 +59,7 @@ const MovieDetails = ({match}) => {
                         </div>
 
                         <button className="jumbotron-btn">
-                            + Add to list
+                            + Add to my rentals
                         </button>
                     </div>
                 </article>

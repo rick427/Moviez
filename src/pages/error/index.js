@@ -1,10 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-const ErrorPage = () => {
+import Button from '../../components/common/Button';
+import { StyledError } from './error-styles'
+
+const ErrorPage = ({history}) => {
     return (
-        <div>
-            Error page
-        </div>
+        <StyledError>
+            <h2 className="error-heading">404 !</h2>
+            
+            <p className="error-text">
+                Page not found. Maybe it got stuck in traffic ?
+            </p>
+
+            <Button onClick={() => history.push('/')}>
+                Go back home
+            </Button>
+        </StyledError>
     )
 }
 

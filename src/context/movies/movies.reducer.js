@@ -24,11 +24,15 @@ const MoviesReducer = (state, action) => {
                 castsLoading: true
             }
         case GET_ALL_MOVIES_SUCCESS:
-            localStorage.setItem('index-movie', JSON.stringify(action.payload[state.movieIndex].backdrop_path))
+            const movies = action.payload.map(item => {
+                item.stock = 5;
+                return item;
+            });
+            localStorage.setItem('index-movie', JSON.stringify(action.payload[state.movieIndex].backdrop_path));
             return {
                 ...state,
                 loading: false,
-                movies: action.payload
+                movies
             }
         case GET_MOVIE_ACTORS_SUCCESS:
             return {
