@@ -41,12 +41,16 @@ const MovieItem = ({item, isRented}) => {
 
             <div className="movie-row">
                 <p className="movie-text">{item.release_date || item.first_air_date}</p>
-                {!isRented && (<p className="movie-text">Stock: x{item.stock}</p>)}
+                {isRented ? (
+                    <p className="movie-badge">watching</p>
+                ) : (
+                    <p className="movie-text">Stock: x{item.stock}</p>
+                )}
             </div>
 
             {isRented ? (
                 <button className="movie-btn" onClick={() => returnMovie(item)}>
-                    &larr; Return Movie
+                    + Return Movie
                 </button>
             ) : (
                 <button className="movie-btn" onClick={handleRent}>

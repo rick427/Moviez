@@ -43,6 +43,13 @@ export const StyledMovieItem = styled.div`
             color: ${({theme}) => theme.colors.text.grey};
             font-size: ${({theme}) => theme.fontSizes.xsmall};
         }
+
+        .movie-badge{
+            text-transform: uppercase;
+            color: ${({theme}) => theme.colors.bg.green};
+            font-size: ${({theme}) => theme.fontSizes.xxsmall};
+            font-weight: ${({theme}) => theme.fontWeights.medium};
+        }
     }
 
     .movie-btn{
