@@ -4,6 +4,21 @@ A movies web application that lets users rent and get the latest information abo
 the movie industry. Moviez was built with React.js. **Please note**: Due to time limitations
 this app was built with a desktop first approach and as such may break if ran on a mobile device.
 
+## Features
+
+1. Dynamic landing page that changes based on the new popular movies in the industry
+2. A tv shows list
+3. A movies list
+4. Renting capabailties (_capped at 3 movies per rent_)
+5. Movie & tv show details
+6. Returning movies & tv shows after renting
+7. Context API for state management
+
+## API's
+
+All the movies and information provided on Moviez are real and are constantly updating in real-time.
+This is made possible with TMDB's REST API's. The endpoints used for this app can be found in the context directory
+
 ## How to run
 
 1. Clone or download the repo above
