@@ -13,6 +13,7 @@ import MovieDetails from './pages/movie-details';
 import { theme } from './theme';
 import Footer from './components/ui/Footer';
 import ScrollRestoration from './utils/scrollRestore';
+import ScrollToTop from './components/common/ScrollToTop';
 import { GlobalStyles } from './components/styles/global-styles';
 
 // context
@@ -23,6 +24,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
+      <ScrollToTop/>
       <ScrollRestoration/>
 
       <MoviesProvider>
