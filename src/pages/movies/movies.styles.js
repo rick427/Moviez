@@ -11,7 +11,7 @@ export const StyledMovies = styled.section`
         background-size: cover;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
 
 
         .movies-banner-heading{

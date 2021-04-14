@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import toast from 'react-hot-toast';
 import {useHistory} from 'react-router-dom';
 
+import RentalContext from '../../../context/rentals/rental.context';
 import { StyledShowsCard } from './shows-card.styles';
 
 const ShowsCard = ({item, getImageUrl}) => {
+    const {rentMovie, rentals} = useContext(RentalContext);
     const history = useHistory();
 
     const url = getImageUrl(item.poster_path);
@@ -11,6 +14,14 @@ const ShowsCard = ({item, getImageUrl}) => {
     const handleClick = () => {
         const formattedName = item.name.replace(/\s/g, "_");
         history.push(`/show/${formattedName}/${item.id}`);
+    }
+
+    const handleRent = () => {
+        if(rentals.length === 3){
+            return toast.error('Sorry, you cannot rent more than 3 movies.')
+        }
+        rentMovie(item);
+        toast.success(`${item.name} rented successfully.`)
     }
 
     return (
@@ -22,11 +33,11 @@ const ShowsCard = ({item, getImageUrl}) => {
 
             <div className="card-row">
                 <p className="card-text">{item.first_air_date}</p>
-                <p className="card-text">Stock: x5</p>
+                <p className="card-text">Stock: x{item.stock}</p>
             </div>
 
-            <button className="card-btn">
-                + Add to list
+            <button className="card-btn" onClick={handleRent}>
+                + Rent Show
             </button>
         </StyledShowsCard>
     )

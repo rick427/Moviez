@@ -6,6 +6,7 @@ import useMovieConfig from '../../hooks/useMovieConfig';
 import { adverts } from '../../constants/adverts.constants';
 
 import { StyledWrapper } from './home.styles';
+import Header from '../../components/ui/Header';
 import Rating from '../../components/common/Rating';
 import Button from '../../components/common/Button';
 import Spinner from '../../components/common/Spinner';
@@ -51,6 +52,8 @@ const Home = ({history}) => {
     return (
         <StyledWrapper url={url}>
             <article className="banner">
+                <Header/>
+                
                 <div className="banner-info">
                     <p className="banner-info-subheading">New releases</p>
                     <h1 className="banner-info-heading">{movies?.[movieIndex]?.title}</h1>
@@ -111,7 +114,6 @@ const Home = ({history}) => {
                 </div>
             </article>
         </StyledWrapper>
-    )
-}
-
+    );
+};
 export default Home;

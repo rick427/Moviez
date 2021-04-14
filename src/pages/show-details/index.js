@@ -17,8 +17,6 @@ const ShowDetails = ({match}) => {
         //eslint-disable-next-line
     }, [showId]);
 
-    console.log(CONFIG);
-
     const url = parseImageUrl(
         CONFIG.images.secure_base_url,
         CONFIG.images.backdrop_sizes[3],

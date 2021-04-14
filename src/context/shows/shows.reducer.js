@@ -24,10 +24,14 @@ const ShowsReducer = (state, action) => {
                 castsLoading: true
             }
         case GET_SHOWS_SUCCESS:
+            const newShows = action.payload.map(item => {
+                item.stock = 5;
+                return item;
+            });
             return {
                 ...state,
                 loading: false,
-                shows: action.payload
+                shows: newShows
             }
         case GET_SHOW_SUCCESS:
             return {

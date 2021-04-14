@@ -13,7 +13,8 @@ export const colors = {
         dark2: '#111',
         light: '#f1f1f1',
         grey: 'c1c1c1',
-        green: '#34bd7c'
+        green: '#34bd7c',
+        orange: 'orange',
     },
     text: {
         white: '#fff',
