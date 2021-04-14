@@ -44,7 +44,7 @@ const ShowDetails = ({match}) => {
                     </figure>
 
                     <div className="jumbotron-card-info">
-                        <h2 className="jumbotron-card-info-heading">{show?.title}</h2>
+                        <h2 className="jumbotron-card-info-heading">{show?.name}</h2>
                         <h5 className="jumbotron-card-info-subheading">plot</h5>
                         <p className="jumbotron-card-info-text">{show?.overview}</p>
 

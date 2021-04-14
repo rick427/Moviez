@@ -1,9 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-// import icon from '../../../assets/shopping-cart.svg';
-// import expandIcon from '../../../assets/expand.svg';
-import { StyledShowsCard } from './shows-card.styles'
+import { StyledShowsCard } from './shows-card.styles';
 
 const ShowsCard = ({item, getImageUrl}) => {
     const history = useHistory();
