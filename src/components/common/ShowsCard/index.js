@@ -10,7 +10,7 @@ const ShowsCard = ({item, getImageUrl}) => {
     const url = getImageUrl(item.poster_path);
 
     const handleClick = (item) => {
-        const formattedName = item.name.replace(/\s/g, "_");
+        const formattedName = item.name.replace(/\s{?}/g, "_");
         history.push(`/show/${formattedName}/${item.id}`);
     }
 

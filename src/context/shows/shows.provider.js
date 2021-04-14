@@ -20,7 +20,7 @@ const ShowsContextProvider = props => {
   const initialState = {
     show: {},
     shows: null,
-    casts: {},
+    casts: null,
     castsLoading: false,
     error: '',
     castsError: '',
@@ -57,11 +57,11 @@ const ShowsContextProvider = props => {
     }
   } 
 
-  const getShowCasts = async (showId) => {
+  const getCasts = async (showId) => {
     try {
       dispatch({ type: GET_SHOW_ACTORS_REQUEST });
       const res = await axios.get(`https://api.themoviedb.org/3/tv/${showId}/credits?api_key=${ACCESS_KEY}&language=en-US`);
-      dispatch({ type: GET_SHOW_ACTORS_SUCCESS, payload: res.data});
+      dispatch({ type: GET_SHOW_ACTORS_SUCCESS, payload: res.data.cast});
     } 
     catch (err) {
       dispatch({
@@ -74,7 +74,7 @@ const ShowsContextProvider = props => {
   return (
     <ShowsContext.Provider
       value={{
-        casts: {},
+        casts: state.casts,
         show: state.show,
         shows: state.shows,
         showsLoading: state.loading,
@@ -82,7 +82,7 @@ const ShowsContextProvider = props => {
         error: state.error,
         getShows,
         getShow,
-        getShowCasts
+        getCasts
       }}
     >
       {props.children}

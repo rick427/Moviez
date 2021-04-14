@@ -11,7 +11,7 @@ export const adverts = [
     },
     {
         id: 2,
-        name: 'Stream with no interruptions',
+        name: 'Rent with no interruptions',
         icon: icon2,
         description: 'Pause for snacks, not buffering. Stream smoothly with our lightning-fast NordLynx protocol network.'
     },

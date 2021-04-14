@@ -1,17 +1,20 @@
 import React, {useEffect, useContext} from 'react'
 
+import Button from '../../components/common/Button';
 import Rating from '../../components/common/Rating';
 import Spinner from '../../components/common/Spinner';
 import ShowsContext from '../../context/shows/shows.context';
 import { StyledShowDetails } from './show-details.styles';
 import {CONFIG, parseImageUrl} from '../../utils/helpers';
+import CastItem from '../../components/common/CastItem';
 
-const ShowDetails = ({match, history}) => {
-    const {getShow, show, showsLoading} = useContext(ShowsContext);
+const ShowDetails = ({match}) => {
+    const {getShow, getCasts, casts, show, showsLoading} = useContext(ShowsContext);
     const showId = match.params.showId;
 
     useEffect(() => {
-        getShow(showId)
+        getShow(showId);
+        getCasts(showId);
         //eslint-disable-next-line
     }, [showId]);
 
@@ -28,8 +31,6 @@ const ShowDetails = ({match, history}) => {
         CONFIG.images.poster_sizes[6],
         show?.poster_path
     );
-
-    console.log(CONFIG);
 
     if(showsLoading){
         return <Spinner/>
@@ -55,11 +56,27 @@ const ShowDetails = ({match, history}) => {
 
                         <div className="jumbotron-row">
                             {show?.genres?.map(item => (
-                                <div className="genre">{item.name}</div>
+                                <div key={item.id} className="genre">{item.name}</div>
                             ))}
                         </div>
+
+                        <button className="jumbotron-btn">
+                            + Add to list
+                        </button>
                     </div>
                 </article>
+            </div>
+
+            <div className="cast-info">
+                <h2 className="cast-info-heading">
+                    Actors
+                </h2>
+
+                <div className="cast-info-grid">
+                    {casts?.map(item => (
+                        <CastItem key={item.id} item={item}/>
+                    ))}
+                </div>
             </div>
         </StyledShowDetails>
     )
