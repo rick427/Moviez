@@ -12,7 +12,8 @@ export const colors = {
         dark: '#000',
         dark2: '#111',
         light: '#f1f1f1',
-        grey: 'c1c1c1'
+        grey: 'c1c1c1',
+        green: '#34bd7c'
     },
     text: {
         white: '#fff',

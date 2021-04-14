@@ -42,7 +42,7 @@ const MoviesContextProvider = props => {
     try {
       dispatch({ type: GET_MOVIE_REQUEST });
       const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${ACCESS_KEY}&language=en-US`);
-      dispatch({ type: GET_MOVIE_SUCCESS, payload: res.data.results});
+      dispatch({ type: GET_MOVIE_SUCCESS, payload: res.data});
     } 
     catch (err) {
       dispatch({

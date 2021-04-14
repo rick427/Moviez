@@ -4,7 +4,10 @@ import {
   GET_SHOWS_FAILED,
   GET_SHOW_REQUEST,
   GET_SHOW_SUCCESS,
-  GET_SHOW_FAILED
+  GET_SHOW_FAILED,
+  GET_SHOW_ACTORS_REQUEST,
+  GET_SHOW_ACTORS_SUCCESS,
+  GET_SHOW_ACTORS_FAILED
 } from '../types';
 
 const ShowsReducer = (state, action) => {
@@ -14,6 +17,11 @@ const ShowsReducer = (state, action) => {
             return {
                 ...state,
                 loading: true
+            }
+        case GET_SHOW_ACTORS_REQUEST:
+            return {
+                ...state,
+                castsLoading: true
             }
         case GET_SHOWS_SUCCESS:
             return {
@@ -27,12 +35,24 @@ const ShowsReducer = (state, action) => {
                 loading: false,
                 show: action.payload
             }
+        case GET_SHOW_ACTORS_SUCCESS:
+            return {
+                ...state,
+                castsLoading: false,
+                casts: action.payload
+            }
         case GET_SHOW_FAILED:
         case GET_SHOWS_FAILED:
             return {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case GET_SHOW_ACTORS_FAILED:
+            return {
+                ...state,
+                castsLoading: false,
+                castsError: action.payload
             }
         default:
             return state;

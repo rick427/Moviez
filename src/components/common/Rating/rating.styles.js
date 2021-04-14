@@ -24,7 +24,7 @@ export const StyledRating = styled.div`
             width: 4rem;
             height: 4rem;
             border-radius: 50%;
-            border: 2.4px solid green;
+            border: 2.4px solid ${({theme}) => theme.colors.bg.green};
         }
     }
 
