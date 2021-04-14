@@ -6,7 +6,7 @@ this app was built with a desktop first approach and as such may break if ran on
 
 ## Features
 
-1. Dynamic landing page that changes based on the new popular movies in the industry
+1. Dynamic landing page that changes based on new popular movies in the industry
 2. A tv shows list
 3. A movies list
 4. Renting capabailties (_capped at 3 movies per rent_)
@@ -16,15 +16,17 @@ this app was built with a desktop first approach and as such may break if ran on
 
 ## API's
 
-All the movies and information provided on Moviez are real and are constantly updating in real-time.
-This is made possible with TMDB's REST API's. The endpoints used for this app can be found in the context directory
+All the movies and information provided on Moviez are live and are constantly updating in real-time.
+This is made possible with TMDB's REST API's. Making requests to TMDB's endpoints requires an **Access Key**, which can be gotten by creating a free account with them on https://www.themoviedb.org/.
 
 ## How to run
 
 1. Clone or download the repo above
-2. In the root folder, run _npm install_ to get all the necessary dependencies
-3. Run _npm start_
-4. Enjoy 😊
+2. In the project root directory, run _npm install_ to get all the necessary dependencies
+3. Create a .env file in the project root directory and paste your access key from TMDB like so;
+   REACT_APP_MOVIE_ACCESS_KEY=_your key here_
+4. Run _npm start_
+5. Enjoy 😊
 
 ## Live URL
 
